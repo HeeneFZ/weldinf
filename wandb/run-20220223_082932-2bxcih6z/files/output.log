@@ -1,0 +1,23 @@
+
+Scanning 'dataset\train\labels.cache' for images and labels... 1597 found, 0 missing, 0 empty, 0 corrupted: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1597/1597 [00:00<?, ?it/s]
+Scanning 'dataset\val\labels.cache' for images and labels... 801 found, 0 missing, 0 empty, 0 corrupted: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 801/801 [00:00<?, ?it/s]
+Plotting labels...
+[34m[1mautoanchor: [39m[22mAnalyzing anchors... anchors/target = 3.59, Best Possible Recall (BPR) = 1.0000
+Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Image sizes 800 train, 800 test
+Using 4 dataloader workers
+Logging results to runs\train\exp20
+Starting training for 21 epochs...
+     Epoch   gpu_mem       box       obj       cls  landmark     total   targets  img_size
+  0%|                                                                                                                                                                                                                              | 0/400 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "train.py", line 512, in <module>
+    train(hyp, opt, device, tb_writer, wandb)
+  File "train.py", line 290, in train
+    loss, loss_items = compute_loss(pred, targets.to(device), model)  # loss scaled by batch_size
+  File "E:\learn\github_project\yolov5-face\utils\loss.py", line 183, in compute_loss
+    lmark += landmarks_loss(plandmarks, tlandmarks[i], lmks_mask[i])
+  File "C:\ProgramData\Anaconda3\envs\pytorch171\lib\site-packages\torch\nn\modules\module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "E:\learn\github_project\yolov5-face\utils\loss.py", line 112, in forward
+    loss = self.loss_fcn(pred*mask, truel*mask)
+RuntimeError: The size of tensor a (6) must match the size of tensor b (7) at non-singleton dimension 1

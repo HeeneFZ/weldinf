@@ -1,0 +1,37 @@
+
+Scanning 'dataset\train\labels.cache' for images and labels... 1597 found, 0 missing, 0 empty, 0 corrupted: 100%|██████████| 1597/1597 [00:00<?, ?it/s]
+Scanning 'dataset\val\labels.cache' for images and labels... 801 found, 0 missing, 0 empty, 0 corrupted: 100%|██████████| 801/801 [00:00<?, ?it/s]
+Plotting labels...
+[34m[1mautoanchor: [39m[22mAnalyzing anchors... anchors/target = 3.59, Best Possible Recall (BPR) = 1.0000
+Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Image sizes 800 train, 800 test
+Using 4 dataloader workers
+Logging results to runs\train\exp19
+Starting training for 250 epochs...
+     Epoch   gpu_mem       box       obj       cls  landmark     total   targets  img_size
+  0%|          | 0/100 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "E:/learn/github_project/yolov5-face/train.py", line 512, in <module>
+    train(hyp, opt, device, tb_writer, wandb)
+  File "E:/learn/github_project/yolov5-face/train.py", line 289, in train
+    pred = model(imgs)  # forward
+  File "C:\ProgramData\Anaconda3\envs\pytorch171\lib\site-packages\torch\nn\modules\module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "E:\learn\github_project\yolov5-face\models\yolo.py", line 185, in forward
+    return self.forward_once(x, profile)  # single-scale inference, train
+  File "E:\learn\github_project\yolov5-face\models\yolo.py", line 201, in forward_once
+    x = m(x)  # run
+  File "C:\ProgramData\Anaconda3\envs\pytorch171\lib\site-packages\torch\nn\modules\module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "E:\learn\github_project\yolov5-face\models\common.py", line 111, in forward
+    return self.cv3(torch.cat((self.m(self.cv1(x)), self.cv2(x)), dim=1))
+  File "C:\ProgramData\Anaconda3\envs\pytorch171\lib\site-packages\torch\nn\modules\module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "E:\learn\github_project\yolov5-face\models\common.py", line 47, in forward
+    return self.act(self.bn(self.conv(x)))
+  File "C:\ProgramData\Anaconda3\envs\pytorch171\lib\site-packages\torch\nn\modules\module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\pytorch171\lib\site-packages\torch\nn\modules\activation.py", line 394, in forward
+    return F.silu(input, inplace=self.inplace)
+  File "C:\ProgramData\Anaconda3\envs\pytorch171\lib\site-packages\torch\nn\functional.py", line 1741, in silu
+    return torch._C._nn.silu(input)
+RuntimeError: CUDA out of memory. Tried to allocate 40.00 MiB (GPU 0; 4.00 GiB total capacity; 2.70 GiB already allocated; 0 bytes free; 2.74 GiB reserved in total by PyTorch)

@@ -1,0 +1,29 @@
+{
+    "os": "Windows-10-10.0.19044-SP0",
+    "python": "3.8.12",
+    "heartbeatAt": "2022-02-23T00:36:06.264983",
+    "startedAt": "2022-02-23T00:36:03.336074",
+    "docker": null,
+    "gpu": "NVIDIA GeForce GTX 1650",
+    "gpu_count": 1,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [
+        "--data",
+        "data/widerface.yaml",
+        "--cfg",
+        "models/yolov5s.yaml",
+        "--weights",
+        "weights/yolov5s.pt",
+        "--epochs",
+        "21",
+        "--batch-size",
+        "4"
+    ],
+    "state": "running",
+    "program": "train.py",
+    "codePath": "train.py",
+    "host": "DESKTOP-BTC1B3Q",
+    "username": "fanzh",
+    "executable": "C:\\ProgramData\\Anaconda3\\envs\\pytorch171\\python.exe"
+}

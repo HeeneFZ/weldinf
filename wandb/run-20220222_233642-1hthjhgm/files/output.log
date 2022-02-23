@@ -1,0 +1,41 @@
+
+Scanning 'dataset\train\labels.cache' for images and labels... 1597 found, 0 missing, 0 empty, 0 corrupted: 100%|██████████| 1597/1597 [00:00<00:00, 1596735.04it/s]
+Scanning 'dataset\val\labels.cache' for images and labels... 801 found, 0 missing, 0 empty, 0 corrupted: 100%|██████████| 801/801 [00:00<?, ?it/s]
+Plotting labels...
+[34m[1mautoanchor: [39m[22mAnalyzing anchors... anchors/target = 3.59, Best Possible Recall (BPR) = 1.0000
+Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Image sizes 800 train, 800 test
+Using 4 dataloader workers
+Logging results to runs\train\exp15
+Starting training for 250 epochs...
+     Epoch   gpu_mem       box       obj       cls  landmark     total   targets  img_size
+  0%|          | 0/100 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "E:/learn/github_project/yolov5-face/train.py", line 512, in <module>
+    train(hyp, opt, device, tb_writer, wandb)
+  File "E:/learn/github_project/yolov5-face/train.py", line 264, in train
+    for i, (imgs, targets, paths, _) in pbar:  # batch -------------------------------------------------------------
+  File "C:\ProgramData\Anaconda3\envs\pytorch171\lib\site-packages\tqdm\std.py", line 1104, in __iter__
+    for obj in iterable:
+  File "E:\learn\github_project\yolov5-face\utils\face_datasets.py", line 101, in __iter__
+    yield next(self.iterator)
+  File "C:\ProgramData\Anaconda3\envs\pytorch171\lib\site-packages\torch\utils\data\dataloader.py", line 435, in __next__
+    data = self._next_data()
+  File "C:\ProgramData\Anaconda3\envs\pytorch171\lib\site-packages\torch\utils\data\dataloader.py", line 1085, in _next_data
+    return self._process_data(data)
+  File "C:\ProgramData\Anaconda3\envs\pytorch171\lib\site-packages\torch\utils\data\dataloader.py", line 1111, in _process_data
+    data.reraise()
+  File "C:\ProgramData\Anaconda3\envs\pytorch171\lib\site-packages\torch\_utils.py", line 428, in reraise
+    raise self.exc_type(msg)
+IndexError: Caught IndexError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\pytorch171\lib\site-packages\torch\utils\data\_utils\worker.py", line 198, in _worker_loop
+    data = fetcher.fetch(index)
+  File "C:\ProgramData\Anaconda3\envs\pytorch171\lib\site-packages\torch\utils\data\_utils\fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "C:\ProgramData\Anaconda3\envs\pytorch171\lib\site-packages\torch\utils\data\_utils\fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "E:\learn\github_project\yolov5-face\utils\face_datasets.py", line 279, in __getitem__
+    img, labels = load_mosaic_face(self, index)
+  File "E:\learn\github_project\yolov5-face\utils\face_datasets.py", line 508, in load_mosaic_face
+    labels4[:, 11] = np.where(labels4[:, 12] == -1, -1, labels4[:, 11])
+IndexError: index 12 is out of bounds for axis 1 with size 11
